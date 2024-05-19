@@ -1,0 +1,21 @@
+CREATE OR REPLACE VIEW
+	view_addresses
+AS
+SELECT
+	CONCAT_WS(
+	' ',
+	e.first_name,
+	e.last_name
+	) AS full_name,
+	department_id,
+	CONCAT_WS(
+	' ',
+	a.number,
+	a.street
+	) AS address
+FROM
+	employees AS e, addresses as a
+WHERE
+	a.id = e.address_id
+ORDER BY
+	address ASC;
