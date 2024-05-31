@@ -1,0 +1,3 @@
+SELECT COUNT(*) FROM EMPLOYEES
+	WHERE salary > (SELECT
+	AVG(SALARY) FROM employees);
